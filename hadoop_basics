@@ -1,0 +1,63 @@
+   ~/Downloads/hadoop# 
+
+
+
+
+
+bin/hdfs dfs -mkdir /usr
+
+
+bin/hdfs dfs -copyFromLocal ~/Downloads/words.txt /usr
+
+or
+
+bin/hdfs dfs -put ~/Downloads/words.txt /usr8                     usr8 is directory
+
+
+bin/hdfs dfs -tail /usr/
+
+
+
+bin/hdfs dfs -ls /usr6                                             usr6 is directory
+
+
+bin/hdfs dfs -copyToLocal  /usr6/words.txt ~/Downloads/testing
+
+or
+
+bin/hdfs dfs -get  /usr6/words.txt ~/Downloads/testing
+
+
+
+
+
+
+bin/hdfs dfs -cat /usr8/words.txt
+
+
+
+
+
+
+
+
+will use the Hadoop-MapReduce-examples.jar file which come along with installation. Jar name differ based on the version you are installing. 
+
+
+bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.7.jar   ///// here u can see 											wordcount
+
+
+
+
+
+bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.7.jar wordcount /usr8/words.txt out                             ////where out  is directory
+
+
+bin/hdfs dfs -ls out
+
+
+
+bin/hdfs dfs -get  out/part-r-00000 ~/Downloads/testing
+
+
+
